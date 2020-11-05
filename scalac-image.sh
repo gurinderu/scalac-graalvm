@@ -12,4 +12,4 @@ for filename in $SCALA_LIB/*.jar; do
     SCALA_LIB_CLASSPATH=$filename:$SCALA_LIB_CLASSPATH
 done
 
-$GRAALVM_HOME/bin/native-image --no-fallback --initialize-at-build-time -cp $SCALA_LIB_CLASSPATH:$PWD/svm-subs_2.13-20.2.0.jar:$PWD/scalac-substitutions/target/scala-2.13/scalac-substitutions_2.13-0.1.0-SNAPSHOT.jar scala.tools.nsc.Main -H:+TraceClassInitialization -H:Name=scalac  $@
+$GRAALVM_HOME/bin/native-image --no-fallback --initialize-at-build-time --initialize-at-run-time=scala.tools.nsc.profile -cp $SCALA_LIB_CLASSPATH:$PWD/svm-subs_2.13-20.2.0.jar:$PWD/scalac-substitutions/target/scala-2.13/scalac-substitutions_2.13-0.1.0-SNAPSHOT.jar scala.tools.nsc.Main -H:+TraceClassInitialization -H:Name=scalac  $
