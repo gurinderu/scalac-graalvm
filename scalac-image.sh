@@ -18,7 +18,6 @@ $GRAALVM_HOME/bin/native-image --no-fallback \
 	--report-unsupported-elements-at-runtime \
 	--initialize-at-build-time \
 	--initialize-at-run-time=scala.tools.nsc.profile.RealProfiler$,scala.tools.nsc.profile.ExtendedThreadMxBean,scala.tools.nsc.classpath.FileBasedCache$,scala.tools.nsc.ast.TreeBrowser,sun.awt.dnd \
-	--debug-attach \
 	-H:+ReportExceptionStackTraces \
 	-H:+TraceClassInitialization \
 	-H:Name=scalac \
