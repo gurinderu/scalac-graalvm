@@ -15,10 +15,11 @@ done
 $GRAALVM_HOME/bin/native-image --no-fallback \
 	--verbose \
 	--install-exit-handlers \
+	--trace-object-instantiation=sun.awt.dnd.SunDropTargetContextPeer \
+	--trace-object-instantiation=java.awt.color.ICC_ColorSpace \
 	--report-unsupported-elements-at-runtime \
 	--initialize-at-build-time \
-	--initialize-at-run-time=scala.tools.nsc.profile.RealProfiler$,scala.tools.nsc.profile.ExtendedThreadMxBean,scala.tools.nsc.classpath.FileBasedCache$,scala.tools.nsc.ast.TreeBrowser,sun.awt.dnd \
+	--initialize-at-run-time=scala.tools.nsc.profile.RealProfiler$,scala.tools.nsc.profile.ExtendedThreadMxBean,scala.tools.nsc.classpath.FileBasedCache$,sun.awt.dnd,sun.java2d.SurfaceData \
 	-H:+ReportExceptionStackTraces \
-	-H:+TraceClassInitialization \
 	-H:Name=scalac \
 	-cp $SCALA_LIB_CLASSPATH:$PWD/svm-subs_2.13-20.2.0.jar:$PWD/scalac-substitutions/target/scala-2.13/scalac-substitutions_2.13-0.1.0-SNAPSHOT.jar scala.tools.nsc.Main $@
