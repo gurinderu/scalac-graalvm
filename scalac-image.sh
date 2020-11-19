@@ -22,4 +22,4 @@ $GRAALVM_HOME/bin/native-image --no-fallback \
 	--initialize-at-run-time=scala.tools.nsc.profile.RealProfiler$,scala.tools.nsc.profile.ExtendedThreadMxBean,scala.tools.nsc.classpath.FileBasedCache$,sun.awt.dnd,sun.java2d.SurfaceData \
 	-H:+ReportExceptionStackTraces \
 	-H:Name=scalac \
-	-cp $SCALA_LIB_CLASSPATH:$PWD/svm-subs_2.13-20.2.0.jar:$PWD/scalac-substitutions/target/scala-2.13/scalac-substitutions_2.13-0.1.0-SNAPSHOT.jar scala.tools.nsc.Main $@
+	-cp $SCALA_LIB_CLASSPATH:$PWD/svm-subs_2.13-20.2.0.jar scala.tools.nsc.Main $@
